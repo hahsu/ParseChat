@@ -21,11 +21,15 @@
     [super viewDidLoad];
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
+    //self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    
+    // call the timer ever second
     [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(onTimer) userInfo:nil repeats:true];
     [self.tableView reloadData];
     // Do any additional setup after loading the view.
 }
 
+// what to do every second
 - (void)onTimer {
     // Add code to be run periodically
     PFQuery *query = [PFQuery queryWithClassName:@"Message_fbu2018"];
@@ -35,8 +39,7 @@
     // fetch data asynchronously
     [query findObjectsInBackgroundWithBlock:^(NSArray *posts, NSError *error) {
         if (posts != nil) {
-            // do something with the array of object returned by the call
-
+            // put all the received chats into our array
             self.chats = posts;
             [self.tableView reloadData];
         } else {
@@ -50,9 +53,14 @@
     // Dispose of any resources that can be recreated.
 }
 - (IBAction)tapSend:(id)sender {
+    // create a chat object
     PFObject *chatMessage = [PFObject objectWithClassName:@"Message_fbu2018"];
+    
+    // set your chat object with the correct info
     chatMessage[@"text"] = self.chatMessageField.text;
     chatMessage[@"user"] = PFUser.currentUser;
+    
+    // send it to the servor
     [chatMessage saveInBackgroundWithBlock:^(BOOL succeeded, NSError * error) {
         if (succeeded) {
             NSLog(@"The message was saved!");
@@ -76,7 +84,9 @@
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
     ChatCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ChatCell" forIndexPath:indexPath];
     PFObject *chat = self.chats[indexPath.row];
-    cell.textLabel.text = chat[@"text"];
+    
+    // get all the infor from the chat object and set it onto the screen
+    cell.chatLabel.text = chat[@"text"];
     PFUser *user = chat[@"user"];
     if (user != nil) {
         // User found! update username label with username

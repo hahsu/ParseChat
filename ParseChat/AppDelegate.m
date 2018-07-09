@@ -24,12 +24,18 @@
     }];
     [Parse initializeWithConfiguration:configuration];
     
-    
+    // check if you already have a user
     PFUser *user = [PFUser currentUser];
     if (user != nil) {
         NSLog(@"Welcome back %@ 😀", user.username);
+        
+        // gets the entire storyboard
         UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        
+        // goes to the chat view controller bc you don't have to log in
         UIViewController *chatNavigationController = [storyboard instantiateViewControllerWithIdentifier:@"ChatViewController"];
+        
+        // sets the chat as the root viewer controller
         self.window.rootViewController = chatNavigationController;
     }
      

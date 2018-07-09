@@ -105,14 +105,18 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="91.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xy3-J4-v1K">
-                                                    <rect key="frame" x="15" y="47" width="345" height="0.0"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="Message" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xy3-J4-v1K">
+                                                    <rect key="frame" x="15" y="47" width="331" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DcL-TE-3qC">
                                                     <rect key="frame" x="15" y="13" width="162" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="21" id="6j9-VK-GvC"/>
+                                                        <constraint firstAttribute="width" constant="162" id="9cf-gK-bfL"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -121,12 +125,11 @@
                                             <constraints>
                                                 <constraint firstItem="DcL-TE-3qC" firstAttribute="leading" secondItem="Uu4-80-bti" secondAttribute="leadingMargin" id="OOH-Et-A6e"/>
                                                 <constraint firstItem="DcL-TE-3qC" firstAttribute="top" secondItem="Uu4-80-bti" secondAttribute="topMargin" constant="2" id="PNs-48-68k"/>
-                                                <constraint firstAttribute="bottom" secondItem="Xy3-J4-v1K" secondAttribute="bottom" constant="44.5" id="Tiq-9F-tq2"/>
-                                                <constraint firstItem="Xy3-J4-v1K" firstAttribute="top" secondItem="DcL-TE-3qC" secondAttribute="bottom" constant="13" id="Tt5-YK-XYM"/>
-                                                <constraint firstItem="Xy3-J4-v1K" firstAttribute="top" secondItem="DcL-TE-3qC" secondAttribute="bottom" constant="13" id="YYn-4n-44Z"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="DcL-TE-3qC" secondAttribute="trailing" constant="183" id="dGa-2T-s9A"/>
-                                                <constraint firstAttribute="trailing" secondItem="Xy3-J4-v1K" secondAttribute="trailing" constant="15" id="iGD-Zm-VZ5"/>
-                                                <constraint firstItem="Xy3-J4-v1K" firstAttribute="leading" secondItem="Uu4-80-bti" secondAttribute="leading" constant="15" id="tVP-pL-GZx"/>
+                                                <constraint firstItem="Xy3-J4-v1K" firstAttribute="top" secondItem="DcL-TE-3qC" secondAttribute="bottom" constant="13" id="joD-8U-8j4"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="Xy3-J4-v1K" secondAttribute="bottom" constant="13" id="pVC-6S-mNh"/>
+                                                <constraint firstItem="Xy3-J4-v1K" firstAttribute="leading" secondItem="Uu4-80-bti" secondAttribute="leadingMargin" id="sOq-35-Ujk"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="Xy3-J4-v1K" secondAttribute="trailing" constant="14" id="xZk-zo-1kk"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>

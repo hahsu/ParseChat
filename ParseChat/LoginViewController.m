@@ -27,6 +27,7 @@
     // Dispose of any resources that can be recreated.
 }
 
+// helper method to create a custom error message each time
 - (void)createError:(NSString *)errorMessage{
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Error"
                                                                    message:errorMessage
@@ -43,6 +44,8 @@
     [self presentViewController:alert animated:YES completion:^{
     }];
 }
+
+// user tapped sign up button
 - (IBAction)tapSignUp:(id)sender {
     PFUser *newUser = [PFUser user];
     // set user properties
@@ -53,6 +56,8 @@
     [newUser signUpInBackgroundWithBlock:^(BOOL succeeded, NSError * error) {
         if (error != nil) {
             NSLog(@"Error: %@", error.localizedDescription);
+            
+            // there was an error so call helper method to build error message
             if([self.usernameField.text isEqual:@""] || [self.passwordField.text isEqual:@""]){
                 [self createError:@"Missing username or password"];
             }
@@ -67,6 +72,8 @@
         }
     }];
 }
+
+// user logged in
 - (IBAction)tapLogin:(id)sender {
     NSString *username = self.usernameField.text;
     NSString *password = self.passwordField.text;
